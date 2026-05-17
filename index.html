@@ -9,8 +9,25 @@
 </head>
 <body>
 
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Interactive Background Canvas -->
+  <canvas id="bgCanvas"></canvas>
+
+  <!-- Aurora Background Effect -->
+  <div class="aurora">
+    <div class="aurora-band aurora-1"></div>
+    <div class="aurora-band aurora-2"></div>
+    <div class="aurora-band aurora-3"></div>
+  </div>
+
+  <!-- Mouse-tracking Gradient Blob -->
+  <div class="mouse-blob" id="mouseBlob"></div>
+
   <!-- Background Particles -->
   <div class="bg-particles">
+    <span></span><span></span><span></span><span></span>
     <span></span><span></span><span></span><span></span>
     <span></span><span></span><span></span><span></span>
   </div>
@@ -22,11 +39,11 @@
       <h2>Healthy Teen</h2>
     </a>
     <ul id="nav-menu">
-      <li><a href="#sehat">Hidup Sehat</a></li>
-      <li><a href="#olahraga">Olahraga</a></li>
-      <li><a href="#tidur">Tidur</a></li>
-      <li><a href="#makanan">Makanan</a></li>
-      <li><a href="#anggota">Anggota</a></li>
+      <li><a href="#sehat" data-text="Hidup Sehat">Hidup Sehat</a></li>
+      <li><a href="#olahraga" data-text="Olahraga">Olahraga</a></li>
+      <li><a href="#tidur" data-text="Tidur">Tidur</a></li>
+      <li><a href="#makanan" data-text="Makanan">Makanan</a></li>
+      <li><a href="#anggota" data-text="Anggota">Anggota</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -39,37 +56,78 @@
       <div class="shape shape-1"></div>
       <div class="shape shape-2"></div>
       <div class="shape shape-3"></div>
+      <div class="shape shape-4"></div>
+      <div class="shape shape-5"></div>
+    </div>
+    <!-- Floating Emojis in Hero -->
+    <div class="floating-emojis">
+      <span class="float-emoji" style="--delay:0s;--x:10%;--duration:6s">🍎</span>
+      <span class="float-emoji" style="--delay:1s;--x:85%;--duration:8s">💪</span>
+      <span class="float-emoji" style="--delay:2s;--x:25%;--duration:7s">🥦</span>
+      <span class="float-emoji" style="--delay:3s;--x:70%;--duration:9s">🧘</span>
+      <span class="float-emoji" style="--delay:4s;--x:50%;--duration:6.5s">🌟</span>
+      <span class="float-emoji" style="--delay:1.5s;--x:90%;--duration:7.5s">🏃</span>
+      <span class="float-emoji" style="--delay:3.5s;--x:5%;--duration:8.5s">💧</span>
     </div>
     <div class="hero-content">
       <div class="hero-badge">
-        <span>🟢</span> Panduan Kesehatan Remaja
+        <span class="pulse-dot"></span> Panduan Kesehatan Remaja
       </div>
-      <h1>Mulai Hidup <span class="gradient-text">Sehat</span> untuk Masa Depan Lebih Baik</h1>
-      <p>Temukan tips pola hidup sehat, olahraga, tidur berkualitas, dan nutrisi yang tepat untuk remaja Indonesia.</p>
+      <h1>Mulai Hidup <span class="gradient-text animated-gradient">Sehat</span> untuk Masa Depan Lebih Baik</h1>
+      <p class="hero-subtitle">Temukan tips pola hidup sehat, olahraga, tidur berkualitas, dan nutrisi yang tepat untuk remaja Indonesia.</p>
       <div class="hero-buttons">
-        <a href="#sehat" class="btn-primary">Mulai Sekarang →</a>
-        <a href="#anggota" class="btn-outline">Tentang Kami</a>
+        <a href="#sehat" class="btn-primary">
+          <span class="btn-text">Mulai Sekarang</span>
+          <span class="btn-icon">→</span>
+          <span class="btn-shine"></span>
+        </a>
+        <a href="#anggota" class="btn-outline">
+          <span class="btn-ripple"></span>
+          <span>Tentang Kami</span>
+        </a>
+      </div>
+      <!-- Scroll Down Indicator -->
+      <div class="scroll-indicator">
+        <div class="mouse">
+          <div class="wheel"></div>
+        </div>
+        <span>Scroll ke bawah</span>
       </div>
     </div>
   </section>
 
+  <!-- Wave Section Divider -->
+  <div class="section-divider">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+      <path d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,30 1440,60 L1440,120 L0,120 Z" fill="var(--bg-alt)"/>
+    </svg>
+  </div>
+
   <!-- Stats Bar -->
-  <div class="stats-bar">
-    <div class="stat-item reveal">
-      <div class="stat-number">8+</div>
+  <div class="stats-bar" id="statsBar">
+    <div class="stat-item reveal" data-count="8">
+      <div class="stat-icon">😴</div>
+      <div class="stat-number" data-target="8">0+</div>
       <div class="stat-label">Jam Tidur Ideal</div>
+      <div class="stat-bar"><div class="stat-bar-fill" style="--fill:80%"></div></div>
     </div>
-    <div class="stat-item reveal">
-      <div class="stat-number">2L</div>
+    <div class="stat-item reveal" data-count="2">
+      <div class="stat-icon">💧</div>
+      <div class="stat-number" data-target="2">0L</div>
       <div class="stat-label">Air Putih / Hari</div>
+      <div class="stat-bar"><div class="stat-bar-fill" style="--fill:65%"></div></div>
     </div>
-    <div class="stat-item reveal">
-      <div class="stat-number">30</div>
+    <div class="stat-item reveal" data-count="30">
+      <div class="stat-icon">⏱️</div>
+      <div class="stat-number" data-target="30">0</div>
       <div class="stat-label">Menit Olahraga</div>
+      <div class="stat-bar"><div class="stat-bar-fill" style="--fill:90%"></div></div>
     </div>
-    <div class="stat-item reveal">
-      <div class="stat-number">5</div>
-      <div class="stat-label">Porsi Sayur & Buah</div>
+    <div class="stat-item reveal" data-count="5">
+      <div class="stat-icon">🥗</div>
+      <div class="stat-number" data-target="5">0</div>
+      <div class="stat-label">Porsi Sayur &amp; Buah</div>
+      <div class="stat-bar"><div class="stat-bar-fill" style="--fill:75%"></div></div>
     </div>
   </div>
 
@@ -81,23 +139,36 @@
       <p>Kebiasaan kecil yang dilakukan setiap hari akan membawa perubahan besar untuk kesehatanmu.</p>
     </div>
     <div class="cards-grid">
-      <div class="glass-card reveal">
+      <div class="glass-card reveal" data-tilt>
+        <div class="card-glow"></div>
         <div class="card-icon">💧</div>
         <h3>Minum Air Putih</h3>
         <p>Minum minimal 8 gelas air putih per hari membantu tubuh tetap terhidrasi, segar, dan meningkatkan konsentrasi belajar.</p>
+        <div class="card-shimmer"></div>
       </div>
-      <div class="glass-card reveal">
+      <div class="glass-card reveal" data-tilt>
+        <div class="card-glow"></div>
         <div class="card-icon">🚫</div>
         <h3>Kurangi Junk Food</h3>
         <p>Hindari makanan cepat saji berlebihan. Ganti dengan camilan sehat seperti buah dan kacang-kacangan agar tubuh tetap fit.</p>
+        <div class="card-shimmer"></div>
       </div>
-      <div class="glass-card reveal">
+      <div class="glass-card reveal" data-tilt>
+        <div class="card-glow"></div>
         <div class="card-icon">🧼</div>
         <h3>Jaga Kebersihan</h3>
         <p>Mandi teratur dan mencuci tangan dengan sabun adalah langkah sederhana untuk mencegah penyebaran penyakit.</p>
+        <div class="card-shimmer"></div>
       </div>
     </div>
   </section>
+
+  <!-- Animated Divider -->
+  <div class="section-divider wave-reverse">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+      <path d="M0,60 C360,0 720,120 1080,60 C1260,30 1380,90 1440,60 L1440,0 L0,0 Z" fill="var(--bg-alt)"/>
+    </svg>
+  </div>
 
   <!-- Olahraga -->
   <section id="olahraga">
@@ -107,23 +178,36 @@
       <p>Minimal 30 menit aktivitas fisik setiap hari membantu menjaga kesehatan jantung dan mental.</p>
     </div>
     <div class="cards-grid">
-      <div class="glass-card reveal">
+      <div class="glass-card reveal" data-tilt>
+        <div class="card-glow"></div>
         <div class="card-icon">🏃</div>
         <h3>Lari Pagi</h3>
         <p>Meningkatkan stamina, kesehatan jantung, dan mood positif untuk memulai hari dengan semangat.</p>
+        <div class="card-shimmer"></div>
       </div>
-      <div class="glass-card reveal">
+      <div class="glass-card reveal" data-tilt>
+        <div class="card-glow"></div>
         <div class="card-icon">🚴</div>
         <h3>Bersepeda</h3>
         <p>Olahraga menyenangkan yang membantu tubuh tetap aktif, melatih otot kaki, dan baik untuk lingkungan.</p>
+        <div class="card-shimmer"></div>
       </div>
-      <div class="glass-card reveal">
+      <div class="glass-card reveal" data-tilt>
+        <div class="card-glow"></div>
         <div class="card-icon">🏀</div>
         <h3>Basket</h3>
         <p>Melatih kerja sama tim, koordinasi tubuh, dan kebugaran fisik secara keseluruhan.</p>
+        <div class="card-shimmer"></div>
       </div>
     </div>
   </section>
+
+  <!-- Divider -->
+  <div class="section-divider">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+      <path d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,30 1440,60 L1440,120 L0,120 Z" fill="var(--bg-alt)"/>
+    </svg>
+  </div>
 
   <!-- Tidur -->
   <section id="tidur">
@@ -133,23 +217,36 @@
       <p>Istirahat yang cukup adalah kunci untuk otak yang tajam dan tubuh yang berenergi.</p>
     </div>
     <div class="cards-grid">
-      <div class="glass-card reveal">
+      <div class="glass-card reveal" data-tilt>
+        <div class="card-glow"></div>
         <div class="card-icon">😴</div>
         <h3>8 Jam Tidur</h3>
         <p>Remaja membutuhkan 8-10 jam tidur setiap malam untuk mendukung pertumbuhan, daya ingat, dan regenerasi sel tubuh.</p>
+        <div class="card-shimmer"></div>
       </div>
-      <div class="glass-card reveal">
+      <div class="glass-card reveal" data-tilt>
+        <div class="card-glow"></div>
         <div class="card-icon">📵</div>
         <h3>Kurangi Begadang</h3>
         <p>Begadang mengurangi konsentrasi, melemahkan imun tubuh, dan meningkatkan risiko gangguan kesehatan mental.</p>
+        <div class="card-shimmer"></div>
       </div>
-      <div class="glass-card reveal">
+      <div class="glass-card reveal" data-tilt>
+        <div class="card-glow"></div>
         <div class="card-icon">🌙</div>
         <h3>Rutinitas Malam</h3>
         <p>Matikan gadget 30 menit sebelum tidur dan ciptakan suasana kamar yang nyaman untuk tidur lebih nyenyak.</p>
+        <div class="card-shimmer"></div>
       </div>
     </div>
   </section>
+
+  <!-- Divider -->
+  <div class="section-divider wave-reverse">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+      <path d="M0,60 C360,0 720,120 1080,60 C1260,30 1380,90 1440,60 L1440,0 L0,0 Z" fill="var(--bg-alt)"/>
+    </svg>
+  </div>
 
   <!-- Makanan -->
   <section id="makanan">
@@ -159,23 +256,36 @@
       <p>Nutrisi yang tepat adalah bahan bakar terbaik untuk tubuh dan otak yang sedang berkembang.</p>
     </div>
     <div class="cards-grid">
-      <div class="glass-card reveal">
+      <div class="glass-card reveal" data-tilt>
+        <div class="card-glow"></div>
         <div class="card-icon">🥗</div>
         <h3>Sayur &amp; Buah</h3>
         <p>Kaya akan vitamin, mineral, dan serat yang sangat baik untuk sistem pencernaan dan daya tahan tubuh.</p>
+        <div class="card-shimmer"></div>
       </div>
-      <div class="glass-card reveal">
+      <div class="glass-card reveal" data-tilt>
+        <div class="card-glow"></div>
         <div class="card-icon">🥚</div>
         <h3>Protein</h3>
         <p>Telur, ikan, daging, dan susu mengandung protein yang membantu pertumbuhan otot dan perbaikan sel tubuh.</p>
+        <div class="card-shimmer"></div>
       </div>
-      <div class="glass-card reveal">
+      <div class="glass-card reveal" data-tilt>
+        <div class="card-glow"></div>
         <div class="card-icon">🍚</div>
         <h3>Karbohidrat</h3>
         <p>Sumber energi utama dari nasi, roti, dan kentang untuk mendukung aktivitas sehari-hari dan kegiatan belajar.</p>
+        <div class="card-shimmer"></div>
       </div>
     </div>
   </section>
+
+  <!-- Divider -->
+  <div class="section-divider">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+      <path d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,30 1440,60 L1440,120 L0,120 Z" fill="var(--bg-alt)"/>
+    </svg>
+  </div>
 
   <!-- Anggota Kelompok -->
   <section id="anggota">
@@ -185,33 +295,57 @@
       <p>Tim di balik website Healthy Teen ini.</p>
     </div>
     <div class="team-grid">
-      <div class="team-card reveal">
-        <img src="foto1.jpg" alt="Anggota 1" class="avatar">
+      <div class="team-card reveal" data-tilt>
+        <div class="card-glow"></div>
+        <div class="avatar-wrapper">
+          <img src="foto1.jpg" alt="Anggota 1" class="avatar">
+          <div class="avatar-ring"></div>
+        </div>
         <h3>Nama Anggota 1</h3>
         <p class="nim">No. Absen: 123456789</p>
       </div>
-      <div class="team-card reveal">
-        <img src="foto2.jpg" alt="Anggota 2" class="avatar">
+      <div class="team-card reveal" data-tilt>
+        <div class="card-glow"></div>
+        <div class="avatar-wrapper">
+          <img src="foto2.jpg" alt="Anggota 2" class="avatar">
+          <div class="avatar-ring"></div>
+        </div>
         <h3>Nama Anggota 2</h3>
         <p class="nim">No. Absen: 123456789</p>
       </div>
-      <div class="team-card reveal">
-        <img src="foto3.jpg" alt="Anggota 3" class="avatar">
+      <div class="team-card reveal" data-tilt>
+        <div class="card-glow"></div>
+        <div class="avatar-wrapper">
+          <img src="foto3.jpg" alt="Anggota 3" class="avatar">
+          <div class="avatar-ring"></div>
+        </div>
         <h3>Nama Anggota 3</h3>
         <p class="nim">No. Absen: 123456789</p>
       </div>
-      <div class="team-card reveal">
-        <img src="foto4.jpg" alt="Anggota 4" class="avatar">
+      <div class="team-card reveal" data-tilt>
+        <div class="card-glow"></div>
+        <div class="avatar-wrapper">
+          <img src="foto4.jpg" alt="Anggota 4" class="avatar">
+          <div class="avatar-ring"></div>
+        </div>
         <h3>Nama Anggota 4</h3>
         <p class="nim">No. Absen: 123456789</p>
       </div>
-      <div class="team-card reveal">
-        <img src="foto5.jpg" alt="Anggota 5" class="avatar">
+      <div class="team-card reveal" data-tilt>
+        <div class="card-glow"></div>
+        <div class="avatar-wrapper">
+          <img src="foto5.jpg" alt="Anggota 5" class="avatar">
+          <div class="avatar-ring"></div>
+        </div>
         <h3>Nama Anggota 5</h3>
         <p class="nim">No. Absen: 123456789</p>
       </div>
-      <div class="team-card reveal">
-        <img src="foto6.jpg" alt="Anggota 6" class="avatar">
+      <div class="team-card reveal" data-tilt>
+        <div class="card-glow"></div>
+        <div class="avatar-wrapper">
+          <img src="foto6.jpg" alt="Anggota 6" class="avatar">
+          <div class="avatar-ring"></div>
+        </div>
         <h3>Nama Anggota 6</h3>
         <p class="nim">No. Absen: 123456789</p>
       </div>
