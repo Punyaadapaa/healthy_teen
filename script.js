@@ -1,20 +1,13 @@
-// Scroll progress bar
+// DOM References
 const scrollProgress = document.getElementById('scrollProgress');
-window.addEventListener('scroll', () => {
-  const winH = document.documentElement.scrollHeight - window.innerHeight;
-  const pct = (window.scrollY / winH) * 100;
-  scrollProgress.style.width = pct + '%';
-});
-
-// Navbar scroll effect
-window.addEventListener('scroll', () => {
-  const nav = document.getElementById('navbar');
-  nav.classList.toggle('scrolled', window.scrollY > 50);
-});
-
-// Hamburger menu
+const nav = document.getElementById('navbar');
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('nav-menu');
+const sections = document.querySelectorAll('section[id]');
+const pillTabs = document.querySelectorAll('.pill-tab');
+const statsBar = document.getElementById('stats-bar');
+
+// Hamburger menu
 hamburger.addEventListener('click', () => {
   navMenu.classList.toggle('active');
 });
@@ -22,45 +15,93 @@ navMenu.querySelectorAll('a').forEach(link => {
   link.addEventListener('click', () => navMenu.classList.remove('active'));
 });
 
-// Scroll reveal
-const revealEls = document.querySelectorAll('.reveal');
-const revealOnScroll = () => {
-  revealEls.forEach(el => {
-    const top = el.getBoundingClientRect().top;
-    if (top < window.innerHeight - 80) {
-      el.classList.add('visible');
-    }
-  });
-};
-window.addEventListener('scroll', revealOnScroll);
-window.addEventListener('load', revealOnScroll);
-
-// Counter animation for stats
-let statsAnimated = false;
-const statsBar = document.getElementById('statsBar');
-
-function animateCounters() {
-  if (statsAnimated || !statsBar) return;
-  const rect = statsBar.getBoundingClientRect();
-  if (rect.top < window.innerHeight - 100) {
-    statsAnimated = true;
-    document.querySelectorAll('.stat-number[data-target]').forEach(el => {
-      const target = parseInt(el.dataset.target);
-      let current = 0;
-      const step = Math.max(1, Math.floor(target / 40));
-      const timer = setInterval(() => {
-        current += step;
-        if (current >= target) {
-          current = target;
-          clearInterval(timer);
-        }
-        el.textContent = current;
-      }, 40);
+// Single scroll listener with rAF throttle
+let ticking = false;
+window.addEventListener('scroll', () => {
+  if (!ticking) {
+    window.requestAnimationFrame(() => {
+      onScroll();
+      ticking = false;
     });
+    ticking = true;
   }
+});
+
+function onScroll() {
+  const scrollY = window.scrollY;
+
+  // 1. Scroll progress bar
+  const winH = document.documentElement.scrollHeight - window.innerHeight;
+  scrollProgress.style.width = (scrollY / winH) * 100 + '%';
+
+  // 2. Navbar scroll effect
+  nav.classList.toggle('scrolled', scrollY > 50);
+
+  // 3. Active nav link highlight
+  const scrollPos = scrollY + 200;
+  sections.forEach(sec => {
+    const top = sec.offsetTop;
+    const height = sec.offsetHeight;
+    const id = sec.getAttribute('id');
+    pillTabs.forEach(tab => {
+      if (tab.getAttribute('href') === `#${id}`) {
+        tab.classList.toggle('active', scrollPos >= top && scrollPos < top + height);
+      }
+    });
+  });
 }
-window.addEventListener('scroll', animateCounters);
-window.addEventListener('load', animateCounters);
+
+// Run once on load for initial state
+window.addEventListener('load', onScroll);
+
+// IntersectionObserver for scroll reveal
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target); // Stop observing once revealed
+      }
+    });
+  },
+  { threshold: 0.1, rootMargin: '0px 0px -80px 0px' }
+);
+
+document.querySelectorAll('.reveal').forEach(el => {
+  revealObserver.observe(el);
+});
+
+// IntersectionObserver for counter animation
+let statsAnimated = false;
+
+if (statsBar) {
+  const statsObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !statsAnimated) {
+          statsAnimated = true;
+          document.querySelectorAll('.stat-number[data-target]').forEach(el => {
+            const target = parseInt(el.dataset.target);
+            let current = 0;
+            const step = Math.max(1, Math.floor(target / 40));
+            const timer = setInterval(() => {
+              current += step;
+              if (current >= target) {
+                current = target;
+                clearInterval(timer);
+              }
+              el.textContent = current;
+            }, 40);
+          });
+          statsObserver.unobserve(entry.target); // Only animate once
+        }
+      });
+    },
+    { threshold: 0.3 }
+  );
+
+  statsObserver.observe(statsBar);
+}
 
 // Tilt effect on cards
 document.querySelectorAll('[data-tilt]').forEach(card => {
@@ -76,26 +117,5 @@ document.querySelectorAll('[data-tilt]').forEach(card => {
   });
   card.addEventListener('mouseleave', () => {
     card.style.transform = '';
-  });
-});
-
-// Active nav link highlight
-const sections = document.querySelectorAll('section[id]');
-const pillTabs = document.querySelectorAll('.pill-tab');
-window.addEventListener('scroll', () => {
-  const scrollPos = window.scrollY + 200;
-  sections.forEach(sec => {
-    const top = sec.offsetTop;
-    const height = sec.offsetHeight;
-    const id = sec.getAttribute('id');
-    pillTabs.forEach(tab => {
-      if (tab.getAttribute('href') === `#${id}`) {
-        if (scrollPos >= top && scrollPos < top + height) {
-          tab.classList.add('active');
-        } else {
-          tab.classList.remove('active');
-        }
-      }
-    });
   });
 });
