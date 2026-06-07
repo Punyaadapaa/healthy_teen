@@ -1,372 +1,540 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Healthy Teen - Website kesehatan remaja untuk hidup sehat, olahraga, tidur cukup, dan makanan bergizi.">
-  <title>Healthy Teen — Kesehatan Remaja</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Healthy Teen - Website kesehatan remaja untuk hidup sehat, olahraga, tidur cukup, dan makanan bergizi."
+    />
+    <title>Healthy Teen — Kesehatan Remaja</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Scroll progress bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
 
-  <!-- Scroll progress bar -->
-  <div class="scroll-progress" id="scrollProgress"></div>
-
-  <!-- Navbar -->
-  <nav id="navbar">
-    <div class="nav-inner">
-      <a href="#" class="nav-logo">
-        <span class="logo-icon">🌿</span>
-        <span class="logo-text">Healthy Teen</span>
-      </a>
-      <div class="nav-pills" id="nav-menu">
-        <a href="#sehat" class="pill-tab">Hidup Sehat</a>
-        <a href="#olahraga" class="pill-tab">Olahraga</a>
-        <a href="#tidur" class="pill-tab">Tidur</a>
-        <a href="#makanan" class="pill-tab">Makanan</a>
-        <a href="#anggota" class="pill-tab">Anggota</a>
-      </div>
-      <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
-
-  <!-- Hero section -->
-  <section class="hero" id="hero">
-    <div class="hero-bg">
-      <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=1920&q=80" alt="Remaja sehat berolahraga" loading="eager">
-      <div class="hero-overlay"></div>
-    </div>
-    <div class="hero-content reveal">
-      <span class="badge badge-success">✦ Panduan Kesehatan Remaja</span>
-      <h1>Mulai Hidup Sehat untuk Masa Depan Lebih Baik</h1>
-      <p class="hero-subtitle">Temukan tips pola hidup sehat, olahraga, tidur berkualitas, dan nutrisi yang tepat untuk remaja Indonesia.</p>
-      <div class="hero-cta">
-        <a href="#sehat" class="btn-primary">Mulai Sekarang</a>
-        <a href="#anggota" class="btn-secondary">Tentang Kami</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Stats bar -->
-  <section class="stats-bar" id="stats-bar">
-    <div class="container">
-      <div class="stats-grid">
-        <div class="stat-item reveal">
-          <span class="stat-number" data-target="8">0</span><span class="stat-suffix">+</span>
-          <p class="stat-label">Jam Tidur Ideal</p>
-        </div>
-        <div class="stat-item reveal">
-          <span class="stat-number" data-target="2">0</span><span class="stat-suffix">L</span>
-          <p class="stat-label">Air Putih / Hari</p>
-        </div>
-        <div class="stat-item reveal">
-          <span class="stat-number" data-target="30">0</span><span class="stat-suffix"> min</span>
-          <p class="stat-label">Olahraga Harian</p>
-        </div>
-        <div class="stat-item reveal">
-          <span class="stat-number" data-target="5">0</span><span class="stat-suffix">x</span>
-          <p class="stat-label">Porsi Sayur & Buah</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Pola hidup sehat -->
-  <section id="sehat" class="section">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">Lifestyle</span>
-        <h2>Pola Hidup Sehat</h2>
-        <p>Kebiasaan kecil yang dilakukan setiap hari akan membawa perubahan besar untuk kesehatanmu.</p>
-      </div>
-      <div class="feature-grid">
-        <div class="feature-card reveal" data-tilt>
-          <div class="feature-img">
-            <img src="https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=600&q=80" alt="Minum air putih" loading="lazy">
-          </div>
-          <div class="feature-body">
-            <h3>Minum Air Putih</h3>
-            <p>Minum minimal 8 gelas air putih per hari membantu tubuh tetap terhidrasi, segar, dan meningkatkan konsentrasi belajar.</p>
-          </div>
-        </div>
-        <div class="feature-card reveal" data-tilt>
-          <div class="feature-img">
-            <img src="https://images.unsplash.com/photo-1490818387583-1baba5e638af?w=600&q=80" alt="Makanan sehat" loading="lazy">
-          </div>
-          <div class="feature-body">
-            <h3>Kurangi Junk Food</h3>
-            <p>Hindari makanan cepat saji berlebihan. Ganti dengan camilan sehat seperti buah dan kacang-kacangan agar tubuh tetap fit.</p>
-          </div>
-        </div>
-        <div class="feature-card reveal" data-tilt>
-          <div class="feature-img">
-            <img src="https://images.unsplash.com/photo-1585421514284-efb74c2b69ba?w=600&q=80" alt="Cuci tangan" loading="lazy">
-          </div>
-          <div class="feature-body">
-            <h3>Jaga Kebersihan</h3>
-            <p>Mandi teratur dan mencuci tangan dengan sabun adalah langkah sederhana untuk mencegah penyebaran penyakit.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Promo strip -->
-  <section class="promo-strip">
-    <div class="container">
-      <div class="promo-content reveal">
-        <div class="promo-text">
-          <h2>Tahukah Kamu?</h2>
-          <p>Remaja yang aktif berolahraga 30 menit per hari memiliki risiko 40% lebih rendah mengalami gangguan kesehatan mental.</p>
-          <a href="#olahraga" class="btn-primary btn-white">Pelajari Olahraga →</a>
-        </div>
-        <div class="promo-img">
-          <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800&q=80" alt="Remaja berolahraga" loading="lazy">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Olahraga -->
-  <section id="olahraga" class="section">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">Fitness</span>
-        <h2>Olahraga Rutin</h2>
-        <p>Minimal 30 menit aktivitas fisik setiap hari membantu menjaga kesehatan jantung dan mental.</p>
-      </div>
-      <div class="photo-grid">
-        <div class="photo-card photo-card-large reveal" data-tilt>
-          <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=900&q=80" alt="Lari pagi" loading="lazy">
-          <div class="photo-card-overlay">
-            <h3>Lari Pagi</h3>
-            <p>Meningkatkan stamina, kesehatan jantung, dan mood positif untuk memulai hari dengan semangat.</p>
-          </div>
-        </div>
-        <div class="photo-card reveal" data-tilt>
-          <img src="https://images.unsplash.com/photo-1541625602330-2277a4c46182?w=600&q=80" alt="Bersepeda" loading="lazy">
-          <div class="photo-card-overlay">
-            <h3>Bersepeda</h3>
-            <p>Olahraga menyenangkan yang melatih otot kaki dan baik untuk lingkungan.</p>
-          </div>
-        </div>
-        <div class="photo-card reveal" data-tilt>
-          <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=600&q=80" alt="Basket" loading="lazy">
-          <div class="photo-card-overlay">
-            <h3>Basket</h3>
-            <p>Melatih kerja sama tim, koordinasi, dan kebugaran fisik secara keseluruhan.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Tidur -->
-  <section id="tidur" class="section section-alt">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">Rest</span>
-        <h2>Tidur Berkualitas</h2>
-        <p>Istirahat yang cukup adalah kunci untuk otak yang tajam dan tubuh yang berenergi.</p>
-      </div>
-      <div class="split-section">
-        <div class="split-img reveal">
-          <img src="https://images.unsplash.com/photo-1531353826977-0941b4779a1c?w=800&q=80" alt="Tidur berkualitas" loading="lazy">
-        </div>
-        <div class="split-content">
-          <div class="icon-feature reveal">
-            <div class="icon-circle">😴</div>
-            <div>
-              <h3>8 Jam Tidur</h3>
-              <p>Remaja membutuhkan 8-10 jam tidur setiap malam untuk mendukung pertumbuhan, daya ingat, dan regenerasi sel tubuh.</p>
-            </div>
-          </div>
-          <div class="icon-feature reveal">
-            <div class="icon-circle">📵</div>
-            <div>
-              <h3>Kurangi Begadang</h3>
-              <p>Begadang mengurangi konsentrasi, melemahkan imun tubuh, dan meningkatkan risiko gangguan kesehatan mental.</p>
-            </div>
-          </div>
-          <div class="icon-feature reveal">
-            <div class="icon-circle">🌙</div>
-            <div>
-              <h3>Rutinitas Malam</h3>
-              <p>Matikan gadget 30 menit sebelum tidur dan ciptakan suasana kamar yang nyaman untuk tidur lebih nyenyak.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Makanan -->
-  <section id="makanan" class="section">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">Nutrition</span>
-        <h2>Makanan Bergizi</h2>
-        <p>Nutrisi yang tepat adalah bahan bakar terbaik untuk tubuh dan otak yang sedang berkembang.</p>
-      </div>
-      <div class="feature-grid">
-        <div class="feature-card reveal" data-tilt>
-          <div class="feature-img">
-            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80" alt="Sayur dan buah" loading="lazy">
-          </div>
-          <div class="feature-body">
-            <h3>Sayur &amp; Buah</h3>
-            <p>Kaya akan vitamin, mineral, dan serat yang sangat baik untuk sistem pencernaan dan daya tahan tubuh.</p>
-          </div>
-        </div>
-        <div class="feature-card reveal" data-tilt>
-          <div class="feature-img">
-            <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=600&q=80" alt="Protein" loading="lazy">
-          </div>
-          <div class="feature-body">
-            <h3>Protein</h3>
-            <p>Telur, ikan, daging, dan susu mengandung protein yang membantu pertumbuhan otot dan perbaikan sel tubuh.</p>
-          </div>
-        </div>
-        <div class="feature-card reveal" data-tilt>
-          <div class="feature-img">
-            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&q=80" alt="Roti dan karbohidrat" loading="lazy">
-          </div>
-          <div class="feature-body">
-            <h3>Karbohidrat</h3>
-            <p>Sumber energi utama dari nasi, roti, dan kentang untuk mendukung aktivitas sehari-hari dan kegiatan belajar.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Why healthy section -->
-  <section class="why-section section section-alt">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">Benefits</span>
-        <h2>Kenapa Harus Hidup Sehat?</h2>
-        <p>Manfaat nyata yang bisa kamu rasakan setiap hari.</p>
-      </div>
-      <div class="why-grid">
-        <div class="why-card reveal" data-tilt>
-          <div class="why-card-img">
-            <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&q=80" alt="Energi lebih" loading="lazy">
-          </div>
-          <div class="why-card-body">
-            <h3>Energi Lebih</h3>
-            <p>Tubuh yang sehat memberikan energi optimal untuk belajar dan beraktivitas sepanjang hari.</p>
-          </div>
-        </div>
-        <div class="why-card reveal" data-tilt>
-          <div class="why-card-img">
-            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&q=80" alt="Fokus tajam" loading="lazy">
-          </div>
-          <div class="why-card-body">
-            <h3>Fokus Tajam</h3>
-            <p>Nutrisi dan tidur cukup meningkatkan konsentrasi dan daya ingat saat belajar.</p>
-          </div>
-        </div>
-        <div class="why-card reveal" data-tilt>
-          <div class="why-card-img">
-            <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80" alt="Mental sehat" loading="lazy">
-          </div>
-          <div class="why-card-body">
-            <h3>Mental Sehat</h3>
-            <p>Olahraga rutin dan pola hidup sehat mengurangi stres dan meningkatkan mood positif.</p>
-          </div>
-        </div>
-        <div class="why-card reveal" data-tilt>
-          <div class="why-card-img">
-            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80" alt="Tubuh kuat" loading="lazy">
-          </div>
-          <div class="why-card-body">
-            <h3>Tubuh Kuat</h3>
-            <p>Imun tubuh meningkat sehingga tidak mudah sakit dan siap menghadapi aktivitas padat.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Anggota kelompok -->
-  <section id="anggota" class="section">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">Team</span>
-        <h2>Anggota Kelompok</h2>
-        <p>Tim di balik website Healthy Teen ini.</p>
-      </div>
-      <div class="team-grid">
-        <div class="team-card reveal" data-tilt>
-          <img src="foto1.jpg" alt="Anggota 1" class="team-avatar">
-          <h3>Nama Anggota 1</h3>
-          <p class="team-role">No. Absen: 123456789</p>
-        </div>
-        <div class="team-card reveal" data-tilt>
-          <img src="foto2.jpg" alt="Anggota 2" class="team-avatar">
-          <h3>Nama Anggota 2</h3>
-          <p class="team-role">No. Absen: 123456789</p>
-        </div>
-        <div class="team-card reveal" data-tilt>
-          <img src="foto3.jpg" alt="Anggota 3" class="team-avatar">
-          <h3>Nama Anggota 3</h3>
-          <p class="team-role">No. Absen: 123456789</p>
-        </div>
-        <div class="team-card reveal" data-tilt>
-          <img src="foto4.jpg" alt="Anggota 4" class="team-avatar">
-          <h3>Nama Anggota 4</h3>
-          <p class="team-role">No. Absen: 123456789</p>
-        </div>
-        <div class="team-card reveal" data-tilt>
-          <img src="foto5.jpg" alt="Anggota 5" class="team-avatar">
-          <h3>Nama Anggota 5</h3>
-          <p class="team-role">No. Absen: 123456789</p>
-        </div>
-        <div class="team-card reveal" data-tilt>
-          <img src="foto6.jpg" alt="Anggota 6" class="team-avatar">
-          <h3>Nama Anggota 6</h3>
-          <p class="team-role">No. Absen: 123456789</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="footer-top">
-        <div class="footer-brand">
+    <!-- Navbar -->
+    <nav id="navbar">
+      <div class="nav-inner">
+        <a href="#" class="nav-logo">
           <span class="logo-icon">🌿</span>
           <span class="logo-text">Healthy Teen</span>
-          <p>Website kesehatan remaja Indonesia</p>
+        </a>
+        <div class="nav-pills" id="nav-menu">
+          <a href="#sehat" class="pill-tab">Hidup Sehat</a>
+          <a href="#olahraga" class="pill-tab">Olahraga</a>
+          <a href="#tidur" class="pill-tab">Tidur</a>
+          <a href="#makanan" class="pill-tab">Makanan</a>
+          <a href="#anggota" class="pill-tab">Anggota</a>
         </div>
-        <div class="footer-nav">
-          <div class="footer-col">
-            <h4>Menu</h4>
-            <a href="#sehat">Hidup Sehat</a>
-            <a href="#olahraga">Olahraga</a>
-            <a href="#tidur">Tidur</a>
-          </div>
-          <div class="footer-col">
-            <h4>Lainnya</h4>
-            <a href="#makanan">Makanan</a>
-            <a href="#anggota">Anggota</a>
-            <a href="#">Kontak</a>
-          </div>
-        </div>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 Healthy Teen — Dibuat dengan <span class="heart">❤</span> oleh Kelompok 6</p>
-      </div>
-    </div>
-  </footer>
+    </nav>
 
-  <script src="script.js"></script>
-</body>
+    <!-- Hero section -->
+    <section class="hero" id="hero">
+      <div class="hero-bg">
+        <img
+          src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=1920&q=80"
+          alt="Remaja sehat berolahraga"
+          loading="eager"
+        />
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="hero-content reveal">
+        <span class="badge badge-success">✦ Panduan Kesehatan Remaja</span>
+        <h1>Mulai Hidup Sehat untuk Masa Depan Lebih Baik</h1>
+        <p class="hero-subtitle">
+          Temukan tips pola hidup sehat, olahraga, tidur berkualitas, dan
+          nutrisi yang tepat untuk remaja Indonesia.
+        </p>
+        <div class="hero-cta">
+          <a href="#sehat" class="btn-primary">Mulai Sekarang</a>
+          <a href="#anggota" class="btn-secondary">Tentang Kami</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats bar -->
+    <section class="stats-bar" id="stats-bar">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item reveal">
+            <span class="stat-number" data-target="8">0</span
+            ><span class="stat-suffix">+</span>
+            <p class="stat-label">Jam Tidur Ideal</p>
+          </div>
+          <div class="stat-item reveal">
+            <span class="stat-number" data-target="2">0</span
+            ><span class="stat-suffix">L</span>
+            <p class="stat-label">Air Putih / Hari</p>
+          </div>
+          <div class="stat-item reveal">
+            <span class="stat-number" data-target="30">0</span
+            ><span class="stat-suffix"> min</span>
+            <p class="stat-label">Olahraga Harian</p>
+          </div>
+          <div class="stat-item reveal">
+            <span class="stat-number" data-target="5">0</span
+            ><span class="stat-suffix">x</span>
+            <p class="stat-label">Porsi Sayur & Buah</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pola hidup sehat -->
+    <section id="sehat" class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Lifestyle</span>
+          <h2>Pola Hidup Sehat</h2>
+          <p>
+            Kebiasaan kecil yang dilakukan setiap hari akan membawa perubahan
+            besar untuk kesehatanmu.
+          </p>
+        </div>
+        <div class="feature-grid">
+          <div class="feature-card reveal" data-tilt>
+            <div class="feature-img">
+              <img
+                src="https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=600&q=80"
+                alt="Minum air putih"
+                loading="lazy"
+              />
+            </div>
+            <div class="feature-body">
+              <h3>Minum Air Putih</h3>
+              <p>
+                Minum minimal 8 gelas air putih per hari membantu tubuh tetap
+                terhidrasi, segar, dan meningkatkan konsentrasi belajar.
+              </p>
+            </div>
+          </div>
+          <div class="feature-card reveal" data-tilt>
+            <div class="feature-img">
+              <img
+                src="https://images.unsplash.com/photo-1490818387583-1baba5e638af?w=600&q=80"
+                alt="Makanan sehat"
+                loading="lazy"
+              />
+            </div>
+            <div class="feature-body">
+              <h3>Kurangi Junk Food</h3>
+              <p>
+                Hindari makanan cepat saji berlebihan. Ganti dengan camilan
+                sehat seperti buah dan kacang-kacangan agar tubuh tetap fit.
+              </p>
+            </div>
+          </div>
+          <div class="feature-card reveal" data-tilt>
+            <div class="feature-img">
+              <img
+                src="https://images.unsplash.com/photo-1585421514284-efb74c2b69ba?w=600&q=80"
+                alt="Cuci tangan"
+                loading="lazy"
+              />
+            </div>
+            <div class="feature-body">
+              <h3>Jaga Kebersihan</h3>
+              <p>
+                Mandi teratur dan mencuci tangan dengan sabun adalah langkah
+                sederhana untuk mencegah penyebaran penyakit.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Promo strip -->
+    <section class="promo-strip">
+      <div class="container">
+        <div class="promo-content reveal">
+          <div class="promo-text">
+            <h2>Tahukah Kamu?</h2>
+            <p>
+              Remaja yang aktif berolahraga 30 menit per hari memiliki risiko
+              40% lebih rendah mengalami gangguan kesehatan mental.
+            </p>
+            <a href="#olahraga" class="btn-primary btn-white"
+              >Pelajari Olahraga →</a
+            >
+          </div>
+          <div class="promo-img">
+            <img
+              src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800&q=80"
+              alt="Remaja berolahraga"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Olahraga -->
+    <section id="olahraga" class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Fitness</span>
+          <h2>Olahraga Rutin</h2>
+          <p>
+            Minimal 30 menit aktivitas fisik setiap hari membantu menjaga
+            kesehatan jantung dan mental.
+          </p>
+        </div>
+        <div class="photo-grid">
+          <div class="photo-card photo-card-large reveal" data-tilt>
+            <img
+              src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=900&q=80"
+              alt="Lari pagi"
+              loading="lazy"
+            />
+            <div class="photo-card-overlay">
+              <h3>Lari Pagi</h3>
+              <p>
+                Meningkatkan stamina, kesehatan jantung, dan mood positif untuk
+                memulai hari dengan semangat.
+              </p>
+            </div>
+          </div>
+          <div class="photo-card reveal" data-tilt>
+            <img
+              src="https://images.unsplash.com/photo-1541625602330-2277a4c46182?w=600&q=80"
+              alt="Bersepeda"
+              loading="lazy"
+            />
+            <div class="photo-card-overlay">
+              <h3>Bersepeda</h3>
+              <p>
+                Olahraga menyenangkan yang melatih otot kaki dan baik untuk
+                lingkungan.
+              </p>
+            </div>
+          </div>
+          <div class="photo-card reveal" data-tilt>
+            <img
+              src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=600&q=80"
+              alt="Basket"
+              loading="lazy"
+            />
+            <div class="photo-card-overlay">
+              <h3>Basket</h3>
+              <p>
+                Melatih kerja sama tim, koordinasi, dan kebugaran fisik secara
+                keseluruhan.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tidur -->
+    <section id="tidur" class="section section-alt">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Rest</span>
+          <h2>Tidur Berkualitas</h2>
+          <p>
+            Istirahat yang cukup adalah kunci untuk otak yang tajam dan tubuh
+            yang berenergi.
+          </p>
+        </div>
+        <div class="split-section">
+          <div class="split-img reveal">
+            <img
+              src="https://images.unsplash.com/photo-1531353826977-0941b4779a1c?w=800&q=80"
+              alt="Tidur berkualitas"
+              loading="lazy"
+            />
+          </div>
+          <div class="split-content">
+            <div class="icon-feature reveal">
+              <div class="icon-circle">😴</div>
+              <div>
+                <h3>8 Jam Tidur</h3>
+                <p>
+                  Remaja membutuhkan 8-10 jam tidur setiap malam untuk mendukung
+                  pertumbuhan, daya ingat, dan regenerasi sel tubuh.
+                </p>
+              </div>
+            </div>
+            <div class="icon-feature reveal">
+              <div class="icon-circle">📵</div>
+              <div>
+                <h3>Kurangi Begadang</h3>
+                <p>
+                  Begadang mengurangi konsentrasi, melemahkan imun tubuh, dan
+                  meningkatkan risiko gangguan kesehatan mental.
+                </p>
+              </div>
+            </div>
+            <div class="icon-feature reveal">
+              <div class="icon-circle">🌙</div>
+              <div>
+                <h3>Rutinitas Malam</h3>
+                <p>
+                  Matikan gadget 30 menit sebelum tidur dan ciptakan suasana
+                  kamar yang nyaman untuk tidur lebih nyenyak.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Makanan -->
+    <section id="makanan" class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Nutrition</span>
+          <h2>Makanan Bergizi</h2>
+          <p>
+            Nutrisi yang tepat adalah bahan bakar terbaik untuk tubuh dan otak
+            yang sedang berkembang.
+          </p>
+        </div>
+        <div class="feature-grid">
+          <div class="feature-card reveal" data-tilt>
+            <div class="feature-img">
+              <img
+                src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80"
+                alt="Sayur dan buah"
+                loading="lazy"
+              />
+            </div>
+            <div class="feature-body">
+              <h3>Sayur &amp; Buah</h3>
+              <p>
+                Kaya akan vitamin, mineral, dan serat yang sangat baik untuk
+                sistem pencernaan dan daya tahan tubuh.
+              </p>
+            </div>
+          </div>
+          <div class="feature-card reveal" data-tilt>
+            <div class="feature-img">
+              <img
+                src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=600&q=80"
+                alt="Protein"
+                loading="lazy"
+              />
+            </div>
+            <div class="feature-body">
+              <h3>Protein</h3>
+              <p>
+                Telur, ikan, daging, dan susu mengandung protein yang membantu
+                pertumbuhan otot dan perbaikan sel tubuh.
+              </p>
+            </div>
+          </div>
+          <div class="feature-card reveal" data-tilt>
+            <div class="feature-img">
+              <img
+                src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&q=80"
+                alt="Roti dan karbohidrat"
+                loading="lazy"
+              />
+            </div>
+            <div class="feature-body">
+              <h3>Karbohidrat</h3>
+              <p>
+                Sumber energi utama dari nasi, roti, dan kentang untuk mendukung
+                aktivitas sehari-hari dan kegiatan belajar.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why healthy section -->
+    <section class="why-section section section-alt">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Benefits</span>
+          <h2>Kenapa Harus Hidup Sehat?</h2>
+          <p>Manfaat nyata yang bisa kamu rasakan setiap hari.</p>
+        </div>
+        <div class="why-grid">
+          <div class="why-card reveal" data-tilt>
+            <div class="why-card-img">
+              <img
+                src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&q=80"
+                alt="Energi lebih"
+                loading="lazy"
+              />
+            </div>
+            <div class="why-card-body">
+              <h3>Energi Lebih</h3>
+              <p>
+                Tubuh yang sehat memberikan energi optimal untuk belajar dan
+                beraktivitas sepanjang hari.
+              </p>
+            </div>
+          </div>
+          <div class="why-card reveal" data-tilt>
+            <div class="why-card-img">
+              <img
+                src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&q=80"
+                alt="Fokus tajam"
+                loading="lazy"
+              />
+            </div>
+            <div class="why-card-body">
+              <h3>Fokus Tajam</h3>
+              <p>
+                Nutrisi dan tidur cukup meningkatkan konsentrasi dan daya ingat
+                saat belajar.
+              </p>
+            </div>
+          </div>
+          <div class="why-card reveal" data-tilt>
+            <div class="why-card-img">
+              <img
+                src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80"
+                alt="Mental sehat"
+                loading="lazy"
+              />
+            </div>
+            <div class="why-card-body">
+              <h3>Mental Sehat</h3>
+              <p>
+                Olahraga rutin dan pola hidup sehat mengurangi stres dan
+                meningkatkan mood positif.
+              </p>
+            </div>
+          </div>
+          <div class="why-card reveal" data-tilt>
+            <div class="why-card-img">
+              <img
+                src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80"
+                alt="Tubuh kuat"
+                loading="lazy"
+              />
+            </div>
+            <div class="why-card-body">
+              <h3>Tubuh Kuat</h3>
+              <p>
+                Imun tubuh meningkat sehingga tidak mudah sakit dan siap
+                menghadapi aktivitas padat.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Anggota kelompok -->
+    <section id="anggota" class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Team</span>
+          <h2>Anggota Kelompok</h2>
+          <p>Tim di balik website Healthy Teen ini.</p>
+        </div>
+        <div class="team-grid">
+          <div class="team-card reveal" data-tilt>
+            <img
+              src="assets/anggota/aulia.jpeg"
+              alt="Foto Aulia"
+              class="team-avatar"
+            />
+            <h3>Aulia</h3>
+            <p class="team-role">No. Absen: 6</p>
+          </div>
+          <div class="team-card reveal" data-tilt>
+            <img
+              src="assets/anggota/devita.jpg"
+              alt="Foto Devita"
+              class="team-avatar"
+            />
+            <h3>Devita</h3>
+            <p class="team-role">No. Absen: 9</p>
+          </div>
+          <div class="team-card reveal" data-tilt>
+            <img
+              src="assets/anggota/aura.jpeg"
+              alt="Foto Aura"
+              class="team-avatar"
+            />
+            <h3>Aura</h3>
+            <p class="team-role">No. Absen: 24</p>
+          </div>
+          <div class="team-card reveal" data-tilt>
+            <img
+              src="assets/anggota/kayla.jpeg"
+              alt="Foto Kayla"
+              class="team-avatar"
+            />
+            <h3>Kayla</h3>
+            <p class="team-role">No. Absen: 18</p>
+          </div>
+          <div class="team-card reveal" data-tilt>
+            <img
+              src="assets/anggota/riffat.jpeg"
+              alt="Foto Riffat"
+              class="team-avatar"
+            />
+            <h3>Riffat</h3>
+            <p class="team-role">No. Absen: 30</p>
+          </div>
+          <div class="team-card reveal" data-tilt>
+            <img
+              src="assets/anggota/sesil.jpeg"
+              alt="Foto Sesil"
+              class="team-avatar"
+            />
+            <h3>Sesil</h3>
+            <p class="team-role">No. Absen: 32</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <span class="logo-icon">🌿</span>
+            <span class="logo-text">Healthy Teen</span>
+            <p>Website kesehatan remaja Indonesia</p>
+          </div>
+          <div class="footer-nav">
+            <div class="footer-col">
+              <h4>Menu</h4>
+              <a href="#sehat">Hidup Sehat</a>
+              <a href="#olahraga">Olahraga</a>
+              <a href="#tidur">Tidur</a>
+            </div>
+            <div class="footer-col">
+              <h4>Lainnya</h4>
+              <a href="#makanan">Makanan</a>
+              <a href="#anggota">Anggota</a>
+              <a href="#">Kontak</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2026 Healthy Teen — Dibuat dengan
+            <span class="heart">❤</span> oleh Kelompok 6
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
 </html>
